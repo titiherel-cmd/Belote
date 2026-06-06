@@ -654,6 +654,10 @@
 
         // --- Déclencheur de Victoire ---
         function checkVictory() {
+            if (totalScoreA >= GOAL_POINTS || totalScoreB >= GOAL_POINTS) {
+                let winnerName = "";
+                let finalScores = "";
+
             if (totalScoreA >= GOAL_POINTS && totalScoreA > totalScoreB) {
               const n1 = inputsJoueurs[0].value || "Joueur 1 Éq. 1";
               const n2 = inputsJoueurs[2].value || "Joueur 2 Éq. 1";
@@ -667,9 +671,6 @@
            }
 
             
-
-
-
 
                 document.getElementById('winnerText').textContent = `${winnerName} remporte la partie !`;
                 document.getElementById('winnerPoints').textContent = `Score final : ${finalScores}`;
