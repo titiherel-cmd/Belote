@@ -654,21 +654,19 @@
 
         // --- Déclencheur de Victoire ---
         function checkVictory() {
-            if (totalScoreA >= GOAL_POINTS || totalScoreB >= GOAL_POINTS) {
-                let winnerName = "";
-                let finalScores = "";
-                
-                if (totalScoreA >= GOAL_POINTS && totalScoreA > totalScoreB) {
-                    const n1 = inputsJoueurs[0].value || "Nord";
-                    const n2 = inputsJoueurs[2].value || "Sud";
-                    winnerName = `L'Équipe A (${n1} & ${n2})`;
-                    finalScores = `${totalScoreA} pts à ${totalScoreB}`;
-                } else {
-                    const e1 = inputsJoueurs[1].value || "Est";
-                    const e2 = inputsJoueurs[3].value || "Ouest";
-                    winnerName = `L'Équipe B (${e1} & ${e2})`;
-                    finalScores = `${totalScoreB} pts à ${totalScoreA}`;
-                }
+            if (totalScoreA >= GOAL_POINTS && totalScoreA > totalScoreB) {
+              const n1 = inputsJoueurs[0].value || "Joueur 1 Éq. 1";
+              const n2 = inputsJoueurs[2].value || "Joueur 2 Éq. 1";
+              winnerName = `L'Équipe 1 (${n1} & ${n2})`;
+              finalScores = `${totalScoreA} pts à ${totalScoreB}`;
+           } else {
+             const e1 = inputsJoueurs[1].value || "Joueur 1 Éq. 2";
+             const e2 = inputsJoueurs[3].value || "Joueur 2 Éq. 2";
+             winnerName = `L'Équipe 2 (${e1} & ${e2})`;
+             finalScores = `${totalScoreB} pts à ${totalScoreA}`;
+           }
+
+            
 
 
 
