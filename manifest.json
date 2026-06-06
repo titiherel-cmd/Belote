@@ -1,7 +1,7 @@
 ﻿{
   "name": "Compteur de Belote Pro",
   "short_name": "Belote",
-  "start_url": "belote.html",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#f5f7fa",
   "theme_color": "#2b4c7e",
