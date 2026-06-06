@@ -1,0 +1,15 @@
+﻿{
+  "name": "Compteur de Belote Pro",
+  "short_name": "Belote",
+  "start_url": "belote.html",
+  "display": "standalone",
+  "background_color": "#f5f7fa",
+  "theme_color": "#2b4c7e",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3813/3813694.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
