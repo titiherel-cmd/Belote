@@ -1,5 +1,5 @@
 {
-  "name": "Compteur de Belote 1000",
+  "name": "Compteur de Belote v1",
   "short_name": "Belote 1000",
   "description": "Compteur de score pour la Belote - Édition 1000 points",
   "start_url": "./index.html",
