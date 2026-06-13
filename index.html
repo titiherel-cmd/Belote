@@ -6,13 +6,14 @@
 <title>Compteur de Belote - Édition 1000 Points</title>
 
 <!-- PWA Meta Tags -->
-<link rel="manifest" href="manifest.json">
+
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Belote 1000">
 <meta name="theme-color" content="#2b4c7e">
-<link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3813/3813694.png">
+<link rel="manifest" href="./manifest.json">
+<link rel="apple-touch-icon" href="./logo.svg">
 
 <style>
 :root {
@@ -339,12 +340,12 @@ input[type="number"]:focus { border-color: var(--primary); }
   <div class="section-box">
     <h3>Configuration de la table</h3>
     <div class="players-grid">
-      <input type="text" id="pA1" value="Nord" placeholder="Joueur 1" maxlength="12">
+      <input type="text" id="pA1" value="Joueur 1" placeholder="Joueur 1" maxlength="12">
       <div style="text-align:center; font-weight:bold; color:var(--gray)">VS</div>
-      <input type="text" id="pB1" value="Est" placeholder="Joueur 2" maxlength="12">
-      <input type="text" id="pA2" value="Sud" placeholder="Joueur 3" maxlength="12">
+      <input type="text" id="pB1" value="Joueur 2" placeholder="Joueur 2" maxlength="12">
+      <input type="text" id="pA2" value="Joueur 3" placeholder="Joueur 3" maxlength="12">
       <div></div>
-      <input type="text" id="pB2" value="Ouest" placeholder="Joueur 4" maxlength="12">
+      <input type="text" id="pB2" value="Joueur 4" placeholder="Joueur 4" maxlength="12">
     </div>
   </div>
 
@@ -352,10 +353,10 @@ input[type="number"]:focus { border-color: var(--primary); }
   <div class="section-box" style="background:#f7fafc;">
     <h3>Qui distribue ?</h3>
     <div class="dealer-selector" id="dealerSelector">
-      <button class="btn-dealer active" id="btnP1" onclick="selectDealer(0)">Nord</button>
-      <button class="btn-dealer" id="btnP2" onclick="selectDealer(1)">Est</button>
-      <button class="btn-dealer" id="btnP3" onclick="selectDealer(2)">Sud</button>
-      <button class="btn-dealer" id="btnP4" onclick="selectDealer(3)">Ouest</button>
+      <button class="btn-dealer active" id="btnP1" onclick="selectDealer(0)">Joueur 1</button>
+      <button class="btn-dealer" id="btnP2" onclick="selectDealer(1)">Joueur 2</button>
+      <button class="btn-dealer" id="btnP3" onclick="selectDealer(2)">Joueur 3</button>
+      <button class="btn-dealer" id="btnP4" onclick="selectDealer(3)">Joueur 4</button>
     </div>
   </div>
 
@@ -479,7 +480,7 @@ function loadState() {
     totalScoreA = s.totalScoreA || 0;
     totalScoreB = s.totalScoreB || 0;
     currentDealerIndex = s.currentDealerIndex || 0;
-    currentDealerName = s.currentDealerName || "Nord";
+    currentDealerName = s.currentDealerName || "Joueur 1";
     historyData = s.historyData || [];
     if (s.joueurs) s.joueurs.forEach((v, i) => { if (inputsJoueurs[i]) inputsJoueurs[i].value = v; });
     // Restaurer UI
@@ -496,10 +497,10 @@ function loadState() {
 // MISE À JOUR UI
 // =====================
 function updateTeamLabels() {
-  const n1 = inputsJoueurs[0].value || "Nord";
-  const n2 = inputsJoueurs[2].value || "Sud";
-  const e1 = inputsJoueurs[1].value || "Est";
-  const e2 = inputsJoueurs[3].value || "Ouest";
+  const n1 = inputsJoueurs[0].value || "Joueur 1";
+  const n2 = inputsJoueurs[2].value || "Joueur 3";
+  const e1 = inputsJoueurs[1].value || "Joueur 2";
+  const e2 = inputsJoueurs[3].value || "Joueur 4";
   document.getElementById('labelTeamA').textContent = `Équipe A (${n1}/${n2})`;
   document.getElementById('labelTeamB').textContent = `Équipe B (${e1}/${e2})`;
 }
@@ -625,11 +626,11 @@ function checkVictory() {
   if (totalScoreA < GOAL_POINTS && totalScoreB < GOAL_POINTS) return;
   let winnerName, finalScores;
   if (totalScoreA >= GOAL_POINTS && totalScoreA >= totalScoreB) {
-    const n1 = inputsJoueurs[0].value || "Nord", n2 = inputsJoueurs[2].value || "Sud";
+    const n1 = inputsJoueurs[0].value || "Joueur 1", n2 = inputsJoueurs[2].value || "Joueur 3";
     winnerName = `Équipe A (${n1} & ${n2})`;
     finalScores = `${totalScoreA} pts contre ${totalScoreB}`;
   } else {
-    const e1 = inputsJoueurs[1].value || "Est", e2 = inputsJoueurs[3].value || "Ouest";
+    const e1 = inputsJoueurs[1].value || "Joueur 2", e2 = inputsJoueurs[3].value || "Joueur 4";
     winnerName = `Équipe B (${e1} & ${e2})`;
     finalScores = `${totalScoreB} pts contre ${totalScoreA}`;
   }
@@ -747,11 +748,7 @@ window.addEventListener('appinstalled', () => {
 // =====================
 // SERVICE WORKER
 // =====================
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').catch(() => {});
-  });
-}
+
 
 // =====================
 // DÉMARRAGE
@@ -759,6 +756,14 @@ if ('serviceWorker' in navigator) {
 loadState();
 updateTeamLabels();
 updateDealerButtons();
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(() => {});
+  });
+}
 </script>
 </body>
 </html>
