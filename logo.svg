@@ -1,32 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <defs>
-    <!-- Dégradé du fond (Assorti à ton appli de belote) -->
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1e3d59" />
-      <stop offset="100%" stop-color="#17b978" />
-    </linearGradient>
-    
-    <!-- Dégradé Doré pour les lettres ARL -->
-    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#ffe066" />
-      <stop offset="50%" stop-color="#f5b041" />
-      <stop offset="100%" stop-color="#9a7d0a" />
-    </linearGradient>
-
-    <!-- Ombre portée pour donner du relief -->
     <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.4"/>
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000000" flood-opacity="0.4"/>
     </filter>
   </defs>
 
-  <!-- Fond carré arrondi (style icône d'application mobile) -->
-  <rect width="512" height="512" rx="110" fill="url(#bgGrad)" />
+  <!-- Fond navy foncé, même style que les autres icônes CARL -->
+  <rect width="512" height="512" rx="90" fill="#12182d" />
 
-  <!-- Cercle central festonné discret -->
-  <circle cx="256" cy="256" r="210" fill="none" stroke="#ffffff" stroke-width="4" stroke-opacity="0.2" stroke-dasharray="15 10" />
-
-  <!-- Les 4 enseignes de cartes à jouer (Style épuré blanc) -->
-  <g fill="#ffffff" fill-opacity="0.85" transform="scale(0.8) translate(64, 64)">
+  <!-- Les 4 enseignes de cartes en blanc, remontées pour laisser place à CARL -->
+  <g fill="#ffffff" fill-opacity="0.90" transform="scale(0.72) translate(90, 30)">
     <!-- Pique ♠ -->
     <path d="M256,70 C210,130 170,165 170,200 C170,235 200,250 225,250 C245,250 250,235 256,235 C262,235 267,250 287,250 C312,250 342,235 342,200 C342,165 302,130 256,70 Z" />
     <path d="M256,220 L236,280 L276,280 Z" />
@@ -42,13 +25,13 @@
     <path d="M126,210 L106,260 L146,260 Z" transform="translate(-130, 0)" />
   </g>
 
-  <!-- Texte central "ARL" -->
-  <text x="256" y="295" 
-        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Impact, sans-serif" 
-        font-size="115" 
-        font-weight="900" 
-        fill="url(#goldGrad)" 
-        text-anchor="middle" 
-        letter-spacing="2"
-        filter="url(#shadow)">ARL</text>
+  <!-- Texte CARL en orange, ancré en bas -->
+  <text x="256" y="468"
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'DejaVu Sans', sans-serif"
+        font-size="92"
+        font-weight="900"
+        fill="#f0a320"
+        text-anchor="middle"
+        letter-spacing="3"
+        filter="url(#shadow)">CARL</text>
 </svg>
