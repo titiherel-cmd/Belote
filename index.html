@@ -593,9 +593,9 @@ btnAdd.addEventListener('click', () => {
   let donneB = parseInt(inputB.value) || 0;
   let detailA = "", detailB = "";
 
-  if (capotA.checked || donneA === BASE_POINTS) {
+  if (capotA.checked) {
     donneA = CAPOT_POINTS; donneB = 0; detailA += " <b>(Capot)</b>";
-  } else if (capotB.checked || donneB === BASE_POINTS) {
+  } else if (capotB.checked) {
     donneB = CAPOT_POINTS; donneA = 0; detailB += " <b>(Capot)</b>";
   }
   if (beloteA.checked) { donneA += 20; detailA += " <small>(Belote)</small>"; }
